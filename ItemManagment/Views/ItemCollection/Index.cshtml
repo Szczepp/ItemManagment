@@ -1,0 +1,26 @@
+﻿@model List<ItemManagement.Models.ItemCollection>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr class="table-secondary">
+        <th> ID </th>
+        <th> Item Collection Name </th>
+        <th> Item Collection Description </th>
+        <th> Item Collection Image </th>
+    </tr>
+    @foreach (var itemCol in Model)
+    {
+        <tr>
+            <td> @itemCol.Id </td>
+            <td> @itemCol.Name </td>
+            <td> @itemCol.Description </td>
+            <td> @itemCol.Image </td>
+
+        </tr>
+    }
+</table>

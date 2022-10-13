@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemManagment", "ItemManagment\ItemManagment.csproj", "{78958B46-EA73-43D9-AE02-E9E358E9AA00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemManagement", "ItemManagment\ItemManagement.csproj", "{78958B46-EA73-43D9-AE02-E9E358E9AA00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemManagment.DomainModels", "ItemManagment.DomainModels\ItemManagment.DomainModels.csproj", "{DB800DC5-A6A8-4247-A4F5-E4B13AACA30B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemManagement.DomainModels", "ItemManagment.DomainModels\ItemManagement.DomainModels.csproj", "{DB800DC5-A6A8-4247-A4F5-E4B13AACA30B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemManagement.DataLayer", "ItemManagement.DataLayer\ItemManagement.DataLayer.csproj", "{FCD2DC7F-6C09-4553-8CA1-841DF4FF98A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DB800DC5-A6A8-4247-A4F5-E4B13AACA30B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB800DC5-A6A8-4247-A4F5-E4B13AACA30B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB800DC5-A6A8-4247-A4F5-E4B13AACA30B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD2DC7F-6C09-4553-8CA1-841DF4FF98A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD2DC7F-6C09-4553-8CA1-841DF4FF98A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD2DC7F-6C09-4553-8CA1-841DF4FF98A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD2DC7F-6C09-4553-8CA1-841DF4FF98A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

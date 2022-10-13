@@ -128,10 +128,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemCollectionController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ItemManagementDbContext.cs" />
+    <Compile Include="Migrations\202210131449225_IntialDb.cs" />
+    <Compile Include="Migrations\202210131449225_IntialDb.designer.cs">
+      <DependentUpon>202210131449225_IntialDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,10 +217,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\ItemCollection\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Item\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -219,10 +229,19 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ItemManagment.DomainModels\ItemManagment.DomainModels.csproj">
-      <Project>{db800dc5-a6a8-4247-a4f5-e4b13aaca30b}</Project>
-      <Name>ItemManagment.DomainModels</Name>
+    <ProjectReference Include="..\ItemManagement.DataLayer\ItemManagement.DataLayer.csproj">
+      <Project>{fcd2dc7f-6c09-4553-8ca1-841df4ff98a8}</Project>
+      <Name>ItemManagement.DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ItemManagment.DomainModels\ItemManagement.DomainModels.csproj">
+      <Project>{db800dc5-a6a8-4247-a4f5-e4b13aaca30b}</Project>
+      <Name>ItemManagement.DomainModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202210131449225_IntialDb.resx">
+      <DependentUpon>202210131449225_IntialDb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
