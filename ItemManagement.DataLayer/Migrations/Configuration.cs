@@ -1,18 +1,19 @@
-﻿namespace ItemManagement.Migrations
+﻿namespace ItemManagement.DataLayer.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using ItemManagement.DataLayer;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<ItemManagement.ItemManagementDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<ItemManagement.DataLayer.ItemManagementDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(ItemManagement.ItemManagementDbContext context)
+        protected override void Seed(ItemManagement.DataLayer.ItemManagementDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

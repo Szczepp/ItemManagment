@@ -1,5 +1,5 @@
-﻿using ItemManagement;
-using ItemManagement.Models;
+﻿using ItemManagement.DomainModels;
+using ItemManagement.DataLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +13,7 @@ namespace ItemManagement.Controllers
         // GET: Item
         public ActionResult Index()
         {
-            ItemManagementDbContext db = new ItemManagementDbContext();
+            ItemManagement.DataLayer.ItemManagementDbContext db = new ItemManagement.DataLayer.ItemManagementDbContext();
             List<Item> Items = db.Items.ToList();
             return View(Items);
         }
