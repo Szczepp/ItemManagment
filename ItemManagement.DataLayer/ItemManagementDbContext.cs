@@ -10,7 +10,7 @@ namespace ItemManagement.DataLayer
 {
     public class ItemManagementDbContext: DbContext 
     {
-        public ItemManagementDbContext(): base("DefaultItemManagementConnection")
+        public ItemManagementDbContext(): base("ConnectionStringAzure")
         {
              
         }
