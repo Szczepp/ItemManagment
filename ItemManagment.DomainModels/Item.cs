@@ -8,11 +8,14 @@ namespace ItemManagement.DomainModels
 {
     public class Item
     {
+        public Item()
+        {
+            this.ItemCollection = new HashSet<ItemCollection>();
+        }
         public long Id { get; set; }
         public string Name { get; set; }
         public string Tag { get; set; }
         public string Image { get; set; }
-        public Nullable<long> ItemCollectionId { get; set; }
-        public virtual ItemCollection ItemCollection { get; set; }
+        public virtual ICollection<ItemCollection> ItemCollection { get; set; }
     }
 }
