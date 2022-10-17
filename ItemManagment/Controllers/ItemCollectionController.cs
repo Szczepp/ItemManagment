@@ -2,6 +2,7 @@
 using ItemManagement.DomainModels;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
@@ -20,6 +21,7 @@ namespace ItemManagement.Controllers
         public ActionResult Index()
         {
             List<ItemCollection> itemCollections = _db.ItemCollections.ToList();
+            
             return View(itemCollections);
         }
 
@@ -50,7 +52,8 @@ namespace ItemManagement.Controllers
 
         public ActionResult Details(long id)
         {
-            ItemCollection itemCollection = _db.ItemCollections.Where(temp => temp.Id == 5).FirstOrDefault();
+            ItemCollection itemCollection = _db.ItemCollections.Where(temp => temp.Id == id).FirstOrDefault();
+            ViewBag.Items = itemCollection.Items.ToList();
             return View(itemCollection);
         }
     }

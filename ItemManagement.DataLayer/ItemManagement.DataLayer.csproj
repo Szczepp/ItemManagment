@@ -56,9 +56,9 @@
     <Compile Include="Migrations\202210131449225_IntialDb.Designer.cs">
       <DependentUpon>202210131449225_IntialDb.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202210131925356_dataLayerTest.cs" />
-    <Compile Include="Migrations\202210131925356_dataLayerTest.designer.cs">
-      <DependentUpon>202210131925356_dataLayerTest.cs</DependentUpon>
+    <Compile Include="Migrations\202210171835065_ItemCollectionRelationshipFix.cs" />
+    <Compile Include="Migrations\202210171835065_ItemCollectionRelationshipFix.designer.cs">
+      <DependentUpon>202210171835065_ItemCollectionRelationshipFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,8 +77,8 @@
     <EmbeddedResource Include="Migrations\202210131449225_IntialDb.resx">
       <DependentUpon>202210131449225_IntialDb.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202210131925356_dataLayerTest.resx">
-      <DependentUpon>202210131925356_dataLayerTest.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202210171835065_ItemCollectionRelationshipFix.resx">
+      <DependentUpon>202210171835065_ItemCollectionRelationshipFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

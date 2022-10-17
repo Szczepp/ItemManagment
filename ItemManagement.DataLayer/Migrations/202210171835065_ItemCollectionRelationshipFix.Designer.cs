@@ -7,13 +7,13 @@ namespace ItemManagement.DataLayer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class dataLayerTest : IMigrationMetadata
+    public sealed partial class ItemCollectionRelationshipFix : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(dataLayerTest));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ItemCollectionRelationshipFix));
         
         string IMigrationMetadata.Id
         {
-            get { return "202210131925356_dataLayerTest"; }
+            get { return "202210171835065_ItemCollectionRelationshipFix"; }
         }
         
         string IMigrationMetadata.Source
