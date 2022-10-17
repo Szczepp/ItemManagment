@@ -1,0 +1,31 @@
+﻿@model ItemManagement.DomainModels.Item
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <div class="row">
+        {
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-block">
+                    <img src="~/Content/Images/default_item_image.jpg" class="card-img-top fit-image" alt="...">
+                    <div class="card-body">
+                        <h5 c lass="card-title">@Model.Name</h5>
+                        <h6 class="card-subtitle text-muted">
+                            Id: @Model.Id
+                        </h6>
+                            <p class="card-text">Tag: @Model.Tag</p>
+                            <p class="card-text"> Coll @Model.ItemCollectionId</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
