@@ -213,6 +213,7 @@
     <Content Include="Views\Item\Details.cshtml" />
     <Content Include="Views\ItemCollection\Create.cshtml" />
     <Content Include="Views\ItemCollection\Details.cshtml" />
+    <Content Include="Views\ItemCollection\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -226,6 +227,14 @@
     <ProjectReference Include="..\ItemManagement.DataLayer\ItemManagement.DataLayer.csproj">
       <Project>{fcd2dc7f-6c09-4553-8ca1-841df4ff98a8}</Project>
       <Name>ItemManagement.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItemManagement.ServiceContracts\ItemManagement.ServiceContracts.csproj">
+      <Project>{b7fae203-fad2-4d74-b84c-7624f199bf1b}</Project>
+      <Name>ItemManagement.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItemManagement.ServiceLayer\ItemManagement.ServiceLayer.csproj">
+      <Project>{febb2354-dc9b-4009-a2ed-82b27d579cc1}</Project>
+      <Name>ItemManagement.ServiceLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\ItemManagment.DomainModels\ItemManagement.DomainModels.csproj">
       <Project>{db800dc5-a6a8-4247-a4f5-e4b13aaca30b}</Project>

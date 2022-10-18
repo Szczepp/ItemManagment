@@ -12,6 +12,7 @@
         <th> Item Collection Name </th>
         <th> Item Collection Description </th>
         <th> Item Collection Image </th>
+        <th> Action </th>
     </tr>
     @foreach (var itemCol in Model)
     {
@@ -20,6 +21,7 @@
             <td><a href="/itemCollection/details?id=@itemCol.Id">  @itemCol.Name </a> </td>
             <td> @itemCol.Description </td>
             <td> @itemCol.Image </td>
+            <td> <a href="/itemCollection/edit?id=@itemCol.Id"> Edit </a> </td>
         </tr>
     }
 </table>
