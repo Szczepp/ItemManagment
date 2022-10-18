@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row">
-        {
+
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">
                 <div class="card-block">
@@ -18,14 +18,15 @@
                         <h6 class="card-subtitle text-muted">
                             Id: @Model.Id
                         </h6>
-                            <p class="card-text">Tag: @Model.Tag</p>
-                            <p class="card-text"> Coll @Model.ItemCollectionId</p>
+                        <p class="card-text">Tag: @Model.Tag</p>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
+    </div>
+    <div class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="btn btn-primary " href="/item/index"> Go back </a>
+        </div>
     </div>
 </div>

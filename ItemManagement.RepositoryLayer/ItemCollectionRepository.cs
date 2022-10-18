@@ -39,6 +39,7 @@ namespace ItemManagement.RepositoryLayer
         {
             ItemCollection collection =  _db.ItemCollections.Find(id);
             _db.ItemCollections.Remove(collection);
+            _db.SaveChanges();
         }
 
         public ItemCollection GetItemCollectionById(long id)

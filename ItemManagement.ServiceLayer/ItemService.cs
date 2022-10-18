@@ -1,4 +1,5 @@
 ﻿using ItemManagement.DomainModels;
+using ItemManagement.RepositoryLayer;
 using ItemManagement.ServiceContracts;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,30 @@ namespace ItemManagement.ServiceLayer
 {
     public class ItemService : IItemService
     {
+        ItemRepository _itemRepo;
+
+        public ItemService()
+        {
+            _itemRepo = new ItemRepository();
+        }
         public void CreateItem(Item item)
         {
-            throw new NotImplementedException();
+            _itemRepo.CreateItem(item);
         }
 
-        public void DeleteItem(int id)
+        public void DeleteItem(long id)
         {
-            throw new NotImplementedException();
+            _itemRepo.DeleteItem(id);
         }
 
-        public Item GetItemById(int id)
+        public Item GetItemById(long id)
         {
-            throw new NotImplementedException();
+            return _itemRepo.GetItemById(id);
         }
 
         public List<Item> GetItems()
         {
-            throw new NotImplementedException();
+            return _itemRepo.GetItems();
         }
 
         public List<Item> SearchItem(string Name)
@@ -37,7 +44,7 @@ namespace ItemManagement.ServiceLayer
 
         public void UpdateItem(Item item)
         {
-            throw new NotImplementedException();
+            _itemRepo.UpdateItem(item);
         }
     }
 }

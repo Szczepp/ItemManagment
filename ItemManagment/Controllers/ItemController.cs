@@ -1,5 +1,6 @@
 ﻿using ItemManagement.DomainModels;
 using ItemManagement.DataLayer;
+using ItemManagement.ServiceLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace ItemManagement.Controllers
     public class ItemController : Controller
     {
         ItemManagementDbContext _db;
+        ItemService _itemService;
         public ItemController()
         {
             _db = new ItemManagementDbContext();
+            _itemService = new ItemService();
         }
         // GET: Item
         public ActionResult Index()
@@ -45,6 +48,25 @@ namespace ItemManagement.Controllers
         {
             var item = _db.Items.Where(temp => temp.Id == Id).FirstOrDefault();
             return View(item);
+        }
+        public ActionResult Edit(long id)
+        {
+            Item item = _itemService.GetItemById(id);
+            return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Item item)
+        {
+            _itemService.UpdateItem(item);
+            return RedirectToAction("Index");
+        }
+
+        
+        public ActionResult Delete(long id)
+        {
+            _itemService.DeleteItem(id);
+            return RedirectToAction("Index");
         }
     }
 }

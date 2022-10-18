@@ -11,9 +11,9 @@ namespace ItemManagement.ServiceContracts
     {
         List<Item> GetItems();
         List<Item> SearchItem(string Name);
-        Item GetItemById(int id);
+        Item GetItemById(long id);
         void CreateItem(Item item);
         void UpdateItem(Item item);
-        void DeleteItem(int id);
+        void DeleteItem(long id);
     }
 }

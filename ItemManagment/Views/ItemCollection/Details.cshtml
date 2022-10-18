@@ -46,12 +46,7 @@
                                             <img src="~/Content/Images/default_item_image.jpg" class="card-img-top fit-image" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">@item.Name</h5>
-                                                <div class="form-check card-title">
-                                                    <label class="form-check-label" for="@item.Id">
-                                                        Add to collection
-                                                    </label>
-                                                    <input class="form-check-input big-checkbox" name="Items" type="checkbox" value="@item.Id" id="@item.Id">
-                                                </div>
+                                               
                                                 <p class="card-text">@item.Tag</p>
                                                 <a href="/item/details?id=@item.Id" class="btn btn-primary"> Show details </a>
                                             </div>
@@ -65,9 +60,11 @@
                 </div>
 
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="navbar navbar-light bg-light">
+    <div class="container">
+        <a class="btn-link navbar" href="/itemCollection/index"> Go back </a>
+    </div>
+</div>
 
 
