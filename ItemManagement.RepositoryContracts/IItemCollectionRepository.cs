@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ItemManagement.ServiceContracts
+namespace ItemManagement.RepositoryContracts
 {
-    public interface IItemCollectionService
+    public interface IItemCollectionRepository
     {
         List<ItemCollection> GetItemCollections();
         List<ItemCollection> SearchItemCollections(string Name);

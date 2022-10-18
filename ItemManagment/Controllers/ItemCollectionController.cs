@@ -1,5 +1,6 @@
 ﻿using ItemManagement.DataLayer;
 using ItemManagement.DomainModels;
+using ItemManagement.ServiceLayer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,82 +16,53 @@ namespace ItemManagement.Controllers
 {
     public class ItemCollectionController : Controller
     {
-        public ItemManagementDbContext _db;
+        public ItemCollectionService _itemCollectionService;
         public ItemCollectionController()
         {
-            _db = new ItemManagementDbContext();
+            _itemCollectionService = new ItemCollectionService();
         }
         // GET: ItemCollection
         public ActionResult Index()
         {
-            List<ItemCollection> itemCollections = _db.ItemCollections.ToList();
+            List<ItemCollection> itemCollections = _itemCollectionService.GetItemCollections();
             
             return View(itemCollections);
         }
 
-        public ActionResult Create()
+        /*public ActionResult Create()
         {
             List<Item> Items = _db.Items.ToList();
 
             return View(Items);
-        }
+        }*/
 
         [HttpPost]
         public ActionResult Create(ItemCollection collection)
         {
-            List<Item> ItemsList = new List<Item>();
-            if (Request.Form["Items"] != null)
-            {
-                var itemsIdArray = Request.Form["Items"].Split(',');
-                foreach(var id in itemsIdArray)
-                {
-                    long itemId = long.Parse(id);
-                    ItemsList.Add(_db.Items.Where(temp => temp.Id == itemId).FirstOrDefault());
-                }
-            }
-            collection.Items = ItemsList;
-            _db.ItemCollections.Add(collection);
-            _db.SaveChanges();
-
+            _itemCollectionService.CreateItemCollection(collection, Request.Form["Items"]);
             return RedirectToAction("Index");
         }
 
         public ActionResult Details(long id)
         {
-            ItemCollection itemCollection = _db.ItemCollections.Where(temp => temp.Id == id).FirstOrDefault();
-            ViewBag.Items = itemCollection.Items.ToList();
+            ItemCollection itemCollection = _itemCollectionService.GetItemCollectionById(id);
+            ViewBag.Items = _itemCollectionService.GetItemsFromItemCollection(itemCollection);
             return View(itemCollection);
         }
         public ActionResult Edit(long id)
         {
-            ItemCollection itemCollection = _db.ItemCollections.Where(temp => temp.Id == id).FirstOrDefault();
-            ViewBag.ItemsInCollection = itemCollection.Items.ToList();
-
-            var ItemsInCollectionIds = itemCollection.Items.Select(temp => temp.Id).ToArray();
-
-            ViewBag.ItemsNotInCollection = _db.Items.Where(temp => !ItemsInCollectionIds.Contains(temp.Id)).ToList();
+            ItemCollection itemCollection = _itemCollectionService.GetItemCollectionById(id);
+            ViewBag.ItemsInCollection = _itemCollectionService.GetItemsFromItemCollection(itemCollection);
+            ViewBag.ItemsNotInCollection = _itemCollectionService.GetItemsNotFromItemCollection(itemCollection);
 
             return View(itemCollection);
         }
 
 
         [HttpPost]
-        public ActionResult Edit(ItemCollection collection, long id)
+        public ActionResult Edit(ItemCollection collection)
         {
-            ItemCollection existingItemCollection = _db.ItemCollections.Find(id);
-
-            if(Request.Form["Items"] != null)
-            {
-                var itemsIdArray = Request.Form["Items"].Split(',');
-                foreach (var itemId in itemsIdArray)
-                {
-                    long longItemId = long.Parse(itemId);
-                    existingItemCollection.Items.Add(_db.Items.Where(temp => temp.Id == longItemId).FirstOrDefault());
-                }
-            }
-
-            _db.Entry(existingItemCollection).CurrentValues.SetValues(collection);
-            _db.SaveChanges();
+            _itemCollectionService.UpdateItemCollection(collection, Request.Form["Items"]);
 
             return RedirectToAction("Index");
         }

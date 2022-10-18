@@ -228,6 +228,14 @@
       <Project>{fcd2dc7f-6c09-4553-8ca1-841df4ff98a8}</Project>
       <Name>ItemManagement.DataLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ItemManagement.RepositoryContracts\ItemManagement.RepositoryContracts.csproj">
+      <Project>{98b44ff0-b304-42ed-b091-329bb7e9e7b9}</Project>
+      <Name>ItemManagement.RepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ItemManagement.RepositoryLayer\ItemManagement.RepositoryLayer.csproj">
+      <Project>{b7fa39a5-c6cf-4d86-b666-1408085a6885}</Project>
+      <Name>ItemManagement.RepositoryLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ItemManagement.ServiceContracts\ItemManagement.ServiceContracts.csproj">
       <Project>{b7fae203-fad2-4d74-b84c-7624f199bf1b}</Project>
       <Name>ItemManagement.ServiceContracts</Name>
