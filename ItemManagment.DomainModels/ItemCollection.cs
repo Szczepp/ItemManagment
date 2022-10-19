@@ -4,9 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ItemManagment.DomainModels
+namespace ItemManagement.DomainModels
 {
-    internal class ItemCollection
+    public class ItemCollection
     {
+        public ItemCollection()
+        {
+            this.Items = new HashSet<Item>();  
+        }
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Image { get; set; }
+
+        public virtual ICollection<Item> Items { get; set; }
     }
 }
