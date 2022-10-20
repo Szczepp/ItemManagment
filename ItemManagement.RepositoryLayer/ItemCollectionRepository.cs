@@ -33,6 +33,7 @@ namespace ItemManagement.RepositoryLayer
             itemCollection.Items = ItemsList;
             _db.ItemCollections.Add(itemCollection);
             _db.SaveChanges();
+            
         }
 
         public void DeleteItemCollection(long id)
