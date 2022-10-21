@@ -30,6 +30,7 @@ namespace ItemManagement.Controllers
             return View();
         }
 
+        [AuthenticationFilter]
         [HttpPost]
         public ActionResult Create(Item item)
         {
@@ -48,12 +49,15 @@ namespace ItemManagement.Controllers
             var item = _itemService.GetItemById(Id);
             return View(item);
         }
+
+        [AuthenticationFilter]
         public ActionResult Edit(long id)
         {
             Item item = _itemService.GetItemById(id);
             return View(item);
         }
 
+        [AuthenticationFilter]
         [HttpPost]
         public ActionResult Edit(Item item)
         {
@@ -61,7 +65,7 @@ namespace ItemManagement.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [AuthenticationFilter]
         public ActionResult Delete(long id)
         {
             _itemService.DeleteItem(id);

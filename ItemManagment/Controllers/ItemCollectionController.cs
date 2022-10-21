@@ -1,5 +1,6 @@
 ﻿using ItemManagement.DataLayer;
 using ItemManagement.DomainModels;
+using ItemManagement.Filters;
 using ItemManagement.ServiceLayer;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace ItemManagement.Controllers
             return View(itemCollections);
         }
 
+        [AuthenticationFilter]
         public ActionResult Create()
         {
             List<Item> Items = _itemService.GetItems();
@@ -31,6 +33,7 @@ namespace ItemManagement.Controllers
             return View(Items);
         }
 
+        [AuthenticationFilter]
         [HttpPost]
         public ActionResult Create(ItemCollection collection)
         {
@@ -46,6 +49,7 @@ namespace ItemManagement.Controllers
 
             return View(itemCollection);
         }
+        [AuthenticationFilter]
         public ActionResult Edit(long id)
         {
             ItemCollection itemCollection = _itemCollectionService.GetItemCollectionById(id);
@@ -55,6 +59,7 @@ namespace ItemManagement.Controllers
             return View(itemCollection);
         }
 
+        [AuthenticationFilter]
         [HttpPost]
         public ActionResult Edit(ItemCollection collection)
         {
@@ -63,6 +68,7 @@ namespace ItemManagement.Controllers
             return RedirectToAction("Index");
         }
 
+        [AuthenticationFilter]
         public ActionResult Delete(long id)
         {
             _itemCollectionService.DeleteItemCollection(id);
