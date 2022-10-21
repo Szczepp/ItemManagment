@@ -5,8 +5,7 @@ using System;
 
 using Unity;
 
-namespace ItemManagment
-{
+namespace ItemManagement{
     /// <summary>
     /// Specifies the Unity configuration for the main container.
     /// </summary>

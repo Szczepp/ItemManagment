@@ -3,10 +3,10 @@ using System.Web.Mvc;
 
 using Unity.AspNet.Mvc;
 
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ItemManagment.UnityMvcActivator), nameof(ItemManagment.UnityMvcActivator.Start))]
-[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(ItemManagment.UnityMvcActivator), nameof(ItemManagment.UnityMvcActivator.Shutdown))]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ItemManagement.UnityMvcActivator), nameof(ItemManagement.UnityMvcActivator.Start))]
+[assembly: WebActivatorEx.ApplicationShutdownMethod(typeof(ItemManagement.UnityMvcActivator), nameof(ItemManagement.UnityMvcActivator.Shutdown))]
 
-namespace ItemManagment
+namespace ItemManagement
 {
     /// <summary>
     /// Provides the bootstrapping for integrating Unity with ASP.NET MVC.
