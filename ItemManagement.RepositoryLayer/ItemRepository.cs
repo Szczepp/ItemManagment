@@ -37,7 +37,7 @@ namespace ItemManagement.RepositoryLayer
 
         public List<Item> GetItems()
         {
-            return _db.Items.ToList();
+            return _db.Items.Where(temp => temp.Name != null).ToList();
         }
 
         public List<Item> SearchItem(string Name)

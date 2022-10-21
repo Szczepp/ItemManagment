@@ -1,6 +1,7 @@
 ﻿using ItemManagement.DomainModels;
 using ItemManagement.DataLayer;
 using ItemManagement.ServiceLayer;
+using ItemManagement.Filters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,25 +12,25 @@ namespace ItemManagement.Controllers
 {
     public class ItemController : Controller
     {
-        ItemManagementDbContext _db;
         ItemService _itemService;
         public ItemController()
         {
-            _db = new ItemManagementDbContext();
             _itemService = new ItemService();
         }
-        // GET: Item
         public ActionResult Index()
-        {
-            List<Item> Items = _db.Items.Where(temp => temp.Name != null).ToList();
+        { 
+            List<Item> Items = _itemService.GetItems();
+
             return View(Items);
         }
 
+        [AuthenticationFilter]
         public ActionResult Create()
         {
             return View();
         }
 
+        [AuthenticationFilter]
         [HttpPost]
         public ActionResult Create(Item item)
         {
@@ -37,24 +38,26 @@ namespace ItemManagement.Controllers
             {
                 return View();
             }
-            _db.Items.Add(item);
-            _db.SaveChanges();
+            _itemService.CreateItem(item);
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult Details(int Id)
+        public ActionResult Details(long Id)
         {
-            var item = _db.Items.Where(temp => temp.Id == Id).FirstOrDefault();
+            var item = _itemService.GetItemById(Id);
             return View(item);
         }
+
+        [AuthenticationFilter]
         public ActionResult Edit(long id)
         {
             Item item = _itemService.GetItemById(id);
             return View(item);
         }
 
+        [AuthenticationFilter]
         [HttpPost]
         public ActionResult Edit(Item item)
         {
@@ -62,7 +65,7 @@ namespace ItemManagement.Controllers
             return RedirectToAction("Index");
         }
 
-        
+        [AuthenticationFilter]
         public ActionResult Delete(long id)
         {
             _itemService.DeleteItem(id);

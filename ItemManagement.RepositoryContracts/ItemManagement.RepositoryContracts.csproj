@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IItemCollectionRepository.cs" />
     <Compile Include="IItemRepository.cs" />
+    <Compile Include="IApplicationUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
