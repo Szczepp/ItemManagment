@@ -1,0 +1,28 @@
+﻿@model List<ItemManagement.DomainModels.ItemCollection>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr class="table-secondary">
+        <th> ID </th>
+        <th> Item Collection Name </th>
+        <th> Item Collection Description </th>
+        <th> Item Collection Image </th>
+        <th> Action </th>
+    </tr>
+    @foreach (var itemCol in Model)
+    {
+        <tr>
+            <td> @itemCol.Id </td>
+            <td><a href="/itemCollection/details?id=@itemCol.Id">  @itemCol.Name </a> </td>
+            <td> @itemCol.Description </td>
+            <td> @itemCol.Image </td>
+            <td> <a href="/itemCollection/edit?id=@itemCol.Id"> Edit | </a> 
+             <a href="/itemCollection/delete?id=@itemCol.Id"> Delete </a> </td>
+        </tr>
+    }
+</table>

@@ -51,12 +51,12 @@ namespace ItemManagement.Controllers
                 IdentityResult result = _userManager.Create(user);
                 if (result.Succeeded)
                 {
-                    //_userManager.AddToRole(user.Id, "Customer");
 
                     var authenticationManager = HttpContext.GetOwinContext().Authentication;
                     var userIdentity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
+                    _userManager.AddToRole(user.Id, "User");
                 }
                 return RedirectToAction("Index", "Home");
             }
@@ -76,17 +76,30 @@ namespace ItemManagement.Controllers
             {
                 var authenticationManager = HttpContext.GetOwinContext().Authentication;
                 var userIdentity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
-                authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                   // _userManager.AddToRole(user.Id, "User"); not working, dont know why
+                authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);               
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("CheckRole");
             }
             ModelState.AddModelError("Error", "Invalid username or password");
             return View();
         }
         ModelState.AddModelError("Error", "Invalid data");
         return View();
-    }
+        }
+
+        public ActionResult CheckRole()
+        {
+            if (User.IsInRole("User"))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            }
+            return RedirectToAction("Index", "Home");
+
+        }
 
         public ActionResult Logout()
         {

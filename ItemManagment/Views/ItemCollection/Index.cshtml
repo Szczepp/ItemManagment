@@ -4,25 +4,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>User''s Collections</h2>
 
-<table class="table">
-    <tr class="table-secondary">
-        <th> ID </th>
-        <th> Item Collection Name </th>
-        <th> Item Collection Description </th>
-        <th> Item Collection Image </th>
-        <th> Action </th>
-    </tr>
-    @foreach (var itemCol in Model)
-    {
-        <tr>
-            <td> @itemCol.Id </td>
-            <td><a href="/itemCollection/details?id=@itemCol.Id">  @itemCol.Name </a> </td>
-            <td> @itemCol.Description </td>
-            <td> @itemCol.Image </td>
-            <td> <a href="/itemCollection/edit?id=@itemCol.Id"> Edit | </a> 
-             <a href="/itemCollection/delete?id=@itemCol.Id"> Delete </a> </td>
-        </tr>
-    }
-</table>
+<h2> Card View </h2>
+<div class="container">
+    <div class="py-5">
+        <div class="container">
+            <div class="row hidden-md-up">
+                @foreach (var itemCol in Model)
+                {
+                    <div class="col-md-4 ">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-block">
+                                <img src="~/Content/Images/default_item_image.jpg" class="card-img-top fit-image" alt="...">
+                                <div class="card-body ">
+                                    <h5 c lass="card-title">@itemCol.Name</h5>
+                                    <p class="card-text">@itemCol.Description</p>
+                                    <a href="/itemCollection/details?id=@itemCol.Id" class="btn btn-primary"> Show details </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
