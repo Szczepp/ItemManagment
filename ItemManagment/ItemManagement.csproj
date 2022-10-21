@@ -180,10 +180,9 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ItemCollectionController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ItemController.cs" />
     <Compile Include="Controllers\ItemCollectionController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Filters\AuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -276,10 +275,14 @@
     <Content Include="Areas\Admin\Views\Item\Edit.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\ItemCollection\Index.cshtml" />
-    <Content Include="Views\Item\Details.cshtml" />
     <Content Include="Views\ItemCollection\Details.cshtml" />
+    <Content Include="Views\Item\Create.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
+    <Content Include="Views\Item\Edit.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\ItemCollection\Create.cshtml" />
+    <Content Include="Views\ItemCollection\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

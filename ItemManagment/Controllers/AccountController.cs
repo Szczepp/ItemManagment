@@ -56,7 +56,6 @@ namespace ItemManagement.Controllers
                     var userIdentity = _userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                     authenticationManager.SignIn(new AuthenticationProperties(), userIdentity);
-                    _userManager.AddToRole(user.Id, "User");
                 }
                 return RedirectToAction("Index", "Home");
             }
